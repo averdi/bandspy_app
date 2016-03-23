@@ -1,0 +1,12 @@
+<%= form_tag(@artist) do %>
+  <div class="field">
+    <%= label_tag :follow_new_artist %><br>
+    <%= text_field_tag :name %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Follow" %>
+  </div>
+<% end %>
+
+

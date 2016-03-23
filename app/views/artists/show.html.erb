@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1">
+      <p id="notice"><%= notice %></p>
+
+    <% if @events.length == 0 %>
+          <%='No Concerts Available' %>
+    <% else%>
+      <p>
+        <%= @events.first.artists.first.name %> <%= form_for(@user_artist) do |f| %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.hidden_field :artist_id, value: @artist.id %>
+              <%= f.submit "Follow" %>
+            <% end %>
+      </p>
+      </div>
+  </div>
+
+  <p>
+    <strong>Concerts:</strong>
+  </p>
+
+
+  <ul>
+    <% @events.each do |event| %>
+    <li><%= event.venue.name %> --
+      <%= event.venue.city%>, <%= event.venue.region%>
+      <%= event.datetime.strftime("%A, %B %d, %l%p") %>
+      <% if event.ticket_status == 'unavailable' %>
+          <%= 'No tickets available' %>
+          <% else event.ticket_status == 'available' %>
+          <%= link_to event.ticket_url do %>
+             Tickets
+          <% end %>
+      <% end %>
+    <% end %>
+    </li>
+
+  </ul>
+  <% end %>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
+
+</div>
+
+
+
+
