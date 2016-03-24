@@ -18,7 +18,7 @@
 $logogrey: rgb(139, 139, 139);
 
 body {
-  background-image: url("blueabstract.png");
+  background-image: url("http://ed3p.com/wp-content/uploads/2015/02/bg.jpg");
 }
 
 .head {
@@ -32,12 +32,26 @@ body {
 }
 
 .cityEvents {
-  font-size: 20px;
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
 }
 
 .jumbotron {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
+}
 
+.shadeBox {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  padding: 20px;
+  width: 48%;
+  margin-bottom: 25px;
+  @media only screen and (max-width: 500px) {
+    width: 100%;
+  }
 }
 
 #spyLogo {
@@ -59,4 +73,32 @@ width: 100%;
   font-color: white;
 }
 
+
+.field, .actions{
+  display: inline-block;
+}
+
+.field {
+  label{
+    margin-right: 8px;
+    color: white;
+  }
+  input{
+    margin-right: 7px;
+    width: 250px;
+    border: none;
+    padding: 4px;
+    border-radius: 4px;
+  }
+}
+
+.actions {
+  input{
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 13px;
+  }
+}
 
