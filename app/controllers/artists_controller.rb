@@ -28,8 +28,8 @@ class ArtistsController < ApplicationController
   # GET /artists/1.json
   def show
     @artist = Artist.find(params[:id])
-      name = @artist.name
-      @events = Bandsintown::Event.search({
+    name = @artist.name
+    @events = Bandsintown::Event.search({
       :artists => [name]
     })
     @user_artist = UserArtist.new
@@ -86,7 +86,6 @@ class ArtistsController < ApplicationController
   # DELETE /artists/1
   # DELETE /artists/1.json
   def destroy
-
     @artist.destroy
     respond_to do |format|
       format.html { redirect_to artists_url, notice: 'Artist was successfully destroyed.' }
