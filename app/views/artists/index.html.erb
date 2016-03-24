@@ -24,10 +24,14 @@
       <tr>
         <td><%= link_to artist.name, artist_path(artist.id) %></td>
         <td><%= artist.on_tour %></td>
-        <td><%= form_for(@user_artist) do |f| %>
-              <%= f.hidden_field :user_id, value: current_user.id %>
-              <%= f.hidden_field :artist_id, value: artist.id %>
-              <%= f.submit "Follow" %>
+        <td><% if UserArtist.find_by(user_id: current_user.id, artist_id: artist.id) %>
+              <%= link_to '<button>Unfollow</button>'.html_safe, user_artist_path(artist.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% else %>
+              <%= form_for(@user_artist) do |f| %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.hidden_field :artist_id, value: artist.id %>
+                <%= f.submit "Follow" %>
+              <% end %>
             <% end %></td>
         <td><%= link_to 'Delete', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

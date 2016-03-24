@@ -14,13 +14,13 @@ class ArtistsController < ApplicationController
       :end_date => 1.week.from_now
     })
 
-    @artists = Artist.all
-      if params[:search]
+    # @artists = Artist.all
+    #   if params[:search]
 
-        @artists= Artist.search(params[:search]).order("created_at DESC")
-      else
-        @artists = Artist.all.order('created_at DESC')
-      end
+    #     @artists= Artist.search(params[:search]).order("created_at DESC")
+    #   else
+    #     @artists = Artist.all.order('created_at DESC')
+    #   end
      @user_artist = UserArtist.new
   end
 

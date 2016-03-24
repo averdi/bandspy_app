@@ -8,11 +8,14 @@
     <% else%>
       <p>
         <h1><%= @events.first.artists.first.name %></h1>
-              <p><%= link_to '<button>Unfollow</button>'.html_safe, user_artist_path(@artist.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-            <%= form_for(@user_artist) do |f| %>
-              <%= f.hidden_field :user_id, value: current_user.id %>
-              <%= f.hidden_field :artist_id, value: @artist.id %>
-              <%= f.submit "Follow" %>
+              <% if UserArtist.find_by(user_id: current_user.id, artist_id: @artist.id) %>
+                <p><%= link_to '<button>Unfollow</button>'.html_safe, user_artist_path(@artist.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+              <% else %>
+                <%= form_for(@user_artist) do |f| %>
+                  <%= f.hidden_field :user_id, value: current_user.id %>
+                  <%= f.hidden_field :artist_id, value: @artist.id %>
+                  <%= f.submit "Follow" %>
+                <% end %>
               <% end %>
       </p>
       </div>
