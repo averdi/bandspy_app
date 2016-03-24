@@ -16,6 +16,7 @@
 @import "bootstrap";
 
 $logogrey: rgb(139, 139, 139);
+$offwhite: rgb(222, 216, 216);
 
 body {
   background-image: url("http://ed3p.com/wp-content/uploads/2015/02/bg.jpg");
@@ -37,6 +38,7 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
 
+
 }
 
 .jumbotron {
@@ -49,6 +51,7 @@ body {
   padding: 20px;
   width: 48%;
   margin-bottom: 25px;
+  color: $offwhite;
   @media only screen and (max-width: 500px) {
     width: 100%;
   }
@@ -60,7 +63,7 @@ body {
 
 #welcome {
   font-size: 40px;
-  color: $logogrey;
+  color: rgb(137, 204, 251);
 }
 
 #search {
@@ -81,7 +84,7 @@ width: 100%;
 .field {
   label{
     margin-right: 8px;
-    color: white;
+    color: $offwhite;
   }
   input{
     margin-right: 7px;
@@ -102,3 +105,6 @@ width: 100%;
   }
 }
 
+#navGreet {
+  text-align: right;
+}

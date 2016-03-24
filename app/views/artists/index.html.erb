@@ -7,13 +7,13 @@
 
 
 
-<h3 class="alert alert-dismissible alert-success">Check out these upcoming events in <%=current_user.location%>:</h3>
+<h3 class="page-header">Check out these upcoming events in <%=current_user.location%>:</h3>
 
 <br>
 
 <ul class = "cityEvents">
  <% @events.each do |event| %>
-  <li class = "shadeBox", class = "cityEvents" ><a href="<%=event.artists.first.bandsintown_url%>"><%=event.artists.first.name %></a> -- <%= event.venue.name %> -- <strong><%= event.datetime.strftime("%l%p, %A, %B %d") %></strong> --
+  <li class = "shadeBox", class = "cityEvents" ><a href="<%=event.artists.first.bandsintown_url%>"><%=event.artists.first.name %></a> -- <%= event.venue.name %> -- <%= event.datetime.strftime("%l%p, %A, %B %d") %> --
 
   <% if event.ticket_status == 'unavailable' %>
   <%= 'No tickets available' %>
