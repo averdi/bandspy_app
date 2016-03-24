@@ -22,9 +22,8 @@
         <ul class="nav navbar-nav navbar-right">
 
 
-
+              <li><%= link_to "Home", root_path, method: :get %></li>
               <li><%= link_to "My Artists", user_user_artists_path(current_user.id), method: :get%></li>
-              <li><%= link_to "My Venues", user_user_venues_path(current_user.id), method: :get %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Edit", edit_user_registration_path, method: :get%></li>
 
