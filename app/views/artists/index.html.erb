@@ -1,12 +1,37 @@
 <p id="notice"><%= notice %></p>
 
 <div id = "search" class = "jumbotron">
+<h2 id="welcome">Welcome, <%=current_user.name%>!</h2>
 <br><%= render 'form' %><br>
 </div>
 
+
+
+<h3 class="alert alert-dismissible alert-success">Check out these upcoming events in <%=current_user.location%>:</h3>
+
+<br>
+
+<ul class = "cityEvents">
+ <% @events.each do |event| %>
+  <li class = "jumbotron", class = "cityEvents" ><a href="<%=event.artists.first.bandsintown_url%>"><%=event.artists.first.name %></a> -- <%= event.venue.name %> -- <strong><%= event.datetime.strftime("%l%p, %A, %B %d") %></strong> --
+
+  <% if event.ticket_status == 'unavailable' %>
+  <%= 'No tickets available' %>
+  <% else event.ticket_status == 'available' %>
+  <%= link_to event.ticket_url do %>
+    Tickets
+    <% end %>
+  <% end %></li>
+
+
+
+<br>
+
+<% end %>
+
 <header class = "jumbotron">
 <div id= "spyLogo"><%= image_tag "Spy1.png", :width => 50, :height => 50 %></div>
-<h2 id="welcome">Welcome, <%=current_user.name%>!</h2>
+
 
 <h1>All Artists</h1>
 
@@ -37,28 +62,6 @@
 
 
 </header>
-
-<h3 class="alert alert-dismissible alert-success">Check out these upcoming events in <%=current_user.location%>:</h3>
-
-<br>
-
-<ul class = "cityEvents">
- <% @events.each do |event| %>
-  <li class = "jumbotron", class = "cityEvents"><a href="<%=event.artists.first.bandsintown_url%>"><%=event.artists.first.name %></a> -- <%= event.venue.name %> -- <strong><%= event.datetime.strftime("%l%p, %A, %B %d") %></strong> --
-
-  <% if event.ticket_status == 'unavailable' %>
-  <%= 'No tickets available' %>
-  <% else event.ticket_status == 'available' %>
-  <%= link_to event.ticket_url do %>
-    Tickets
-    <% end %>
-  <% end %></li>
-
-
-
-<br>
-
-<% end %>
 
 
 <%= link_to 'Follow New Artist', new_artist_path %>

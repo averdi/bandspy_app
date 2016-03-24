@@ -15,16 +15,20 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$turquoise: #00d6dd;
+$logogrey: rgb(139, 139, 139);
 
+body {
+  background-image: url("blueabstract.png");
+}
 
 .head {
   font-family: 'Pacifico', cursive;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .cityEvents {
   list-style: none;
+  padding: 0;
 }
 
 .cityEvents {
@@ -32,7 +36,7 @@ $turquoise: #00d6dd;
 }
 
 .jumbotron {
-  background-color: $turquoise;
+  background: rgba(0, 0, 0, 0.8);
 
 }
 
@@ -42,11 +46,12 @@ $turquoise: #00d6dd;
 
 #welcome {
   font-size: 40px;
+  color: $logogrey;
 }
 
 #search {
 text-align: center;
-background-color: $turquoise;
+background: rgba(0, 0, 0, 0.5);
 width: 100%;
 }
 
