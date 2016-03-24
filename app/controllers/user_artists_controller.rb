@@ -16,9 +16,13 @@ class UserArtistsController < ApplicationController
 
   def new
     @user_artist = UserArtist.new
+    @artist = Artist.new
   end
 
   def create
+
+    # adding new user artist
+
     @user_artist = UserArtist.new(user_artist_params)
 
     respond_to do |format|
@@ -30,6 +34,26 @@ class UserArtistsController < ApplicationController
         format.json { render json: @user_artist.errors, status: :unprocessable_entity }
       end
     end
+
+    #adding new artist to artist table
+
+    name = params[:name]
+
+      artist = Bandsintown::Artist.new({
+        :name => name
+      })
+      @artist = Artist.create(name: artist.name)
+
+     respond_to do |format|
+       if @artist.save
+         format.html { redirect_to @artist }
+         format.json { render :show, status: :created, location: @artist }
+       else
+         format.html { render :new }
+         format.json { render json: @artist.errors, status: :unprocessable_entity }
+       end
+     end
+
   end
 
   def destroy
@@ -46,4 +70,8 @@ class UserArtistsController < ApplicationController
   def user_artist_params
     params.require(:user_artist).permit(:user_id, :artist_id)
   end
+
+ def artist_params
+      params.require(:artist).permit(:name, :on_tour)
+    end
 end

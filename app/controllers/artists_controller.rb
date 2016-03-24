@@ -55,18 +55,17 @@ class ArtistsController < ApplicationController
       })
       @artist = Artist.create(name: artist.name)
 
-    # @artist = Artist.new(artist_params)
+     respond_to do |format|
+       if @artist.save
+         format.html { redirect_to @artist }
+         format.json { render :show, status: :created, location: @artist }
+       else
+         format.html { render :new }
+         format.json { render json: @artist.errors, status: :unprocessable_entity }
+       end
+     end
 
-    # respond_to do |format|
-    #   if @artist.save
-    #     format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
-    #     format.json { render :show, status: :created, location: @artist }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @artist.errors, status: :unprocessable_entity }
-    #   end
-    # end
-    redirect_to artist_path(@artist.id)
+      #   redirect_to artist_path(@artist.id)
 
   end
 

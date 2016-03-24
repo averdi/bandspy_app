@@ -7,7 +7,7 @@
           <%='No Concerts Available' %>
     <% else%>
       <p>
-        <%= @events.first.artists.first.name %> <%= form_for(@user_artist) do |f| %>
+        <h1><%= @events.first.artists.first.name %> <%= form_for(@user_artist) do |f| %></h1>
               <%= f.hidden_field :user_id, value: current_user.id %>
               <%= f.hidden_field :artist_id, value: @artist.id %>
               <%= f.submit "Follow" %>
@@ -17,13 +17,13 @@
   </div>
 
   <p>
-    <strong>Concerts:</strong>
+    <strong><h2>Concerts:</h2></strong>
   </p>
 
 
   <ul>
     <% @events.each do |event| %>
-    <li><%= event.venue.name %> --
+    <li class= "jumbotron cityEvents"><%= event.venue.name %> --
       <%= event.venue.city%>, <%= event.venue.region%>
       <%= event.datetime.strftime("%A, %B %d, %l%p") %>
       <% if event.ticket_status == 'unavailable' %>
