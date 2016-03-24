@@ -32,7 +32,7 @@
       <% if event.ticket_status == 'unavailable' %>
           <%= 'No tickets available' %>
           <% else event.ticket_status == 'available' %>
-          <%= link_to '<i class="fa fa-ticket fa-2x"></i>'.html_safe, event.ticket_url %>
+          <%= link_to 'Buy Tickets', event.ticket_url %>
           <% end %>
       <% end %>
     </li>
