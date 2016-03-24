@@ -14,13 +14,13 @@ class ArtistsController < ApplicationController
       :end_date => 1.week.from_now
     })
 
-    @artists = Artist.all
-      if params[:search]
+    # @artists = Artist.all
+    #   if params[:search]
 
-        @artists= Artist.search(params[:search]).order("created_at DESC")
-      else
-        @artists = Artist.all.order('created_at DESC')
-      end
+    #     @artists= Artist.search(params[:search]).order("created_at DESC")
+    #   else
+    #     @artists = Artist.all.order('created_at DESC')
+    #   end
      @user_artist = UserArtist.new
   end
 
@@ -28,8 +28,8 @@ class ArtistsController < ApplicationController
   # GET /artists/1.json
   def show
     @artist = Artist.find(params[:id])
-      name = @artist.name
-      @events = Bandsintown::Event.search({
+    name = @artist.name
+    @events = Bandsintown::Event.search({
       :artists => [name]
     })
     @user_artist = UserArtist.new
@@ -86,7 +86,6 @@ class ArtistsController < ApplicationController
   # DELETE /artists/1
   # DELETE /artists/1.json
   def destroy
-
     @artist.destroy
     respond_to do |format|
       format.html { redirect_to artists_url, notice: 'Artist was successfully destroyed.' }

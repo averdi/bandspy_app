@@ -3,7 +3,7 @@ class UserArtistsController < ApplicationController
   def index
   # Get all user's artists from user_artists table
   # by finding all artist_id that is with user_id
-
+   @artist = Artist.new
     @user_artists = UserArtist.where(:user_id => current_user.id)
 
   # Match artist_id from user_artists table to id in artists table
@@ -16,7 +16,7 @@ class UserArtistsController < ApplicationController
 
   def new
     @user_artist = UserArtist.new
-    @artist = Artist.new
+
   end
 
   def create
@@ -27,7 +27,7 @@ class UserArtistsController < ApplicationController
 
     respond_to do |format|
       if @user_artist.save
-        format.html { redirect_to root_path, notice: 'Artist was successfully followed.' }
+        format.html { redirect_to :back, notice: 'Artist was successfully followed.' }
         format.json { render :show, status: :created, location: @user_artist }
       else
         format.html { render :new }
@@ -35,43 +35,26 @@ class UserArtistsController < ApplicationController
       end
     end
 
-    #adding new artist to artist table
-
-    name = params[:name]
-
-      artist = Bandsintown::Artist.new({
-        :name => name
-      })
-      @artist = Artist.create(name: artist.name)
-
-     respond_to do |format|
-       if @artist.save
-         format.html { redirect_to @artist }
-         format.json { render :show, status: :created, location: @artist }
-       else
-         format.html { render :new }
-         format.json { render json: @artist.errors, status: :unprocessable_entity }
-       end
-     end
-
   end
 
   def destroy
-    raise
-    @my_artist.destroy
+    @artist = Artist.find(params[:id])
+    @user_artist = UserArtist.find_by(user_id: current_user.id, artist_id: @artist.id)
+    @user_artist.destroy
     respond_to do |format|
-      format.html { redirect_to user_user_artists_path(current_user.id), notice: 'Artist was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'You successfully unfollowed an artist.' }
       format.json { head :no_content }
     end
   end
 
   private
 
-  def user_artist_params
-    params.require(:user_artist).permit(:user_id, :artist_id)
-  end
-
- def artist_params
-      params.require(:artist).permit(:name, :on_tour)
+    def set_user_artist
+      @user_artist = UserArtist.find_by(user_id: current_user.id, artist_id: @artist.id)
     end
+
+    def user_artist_params
+      params.require(:user_artist).permit(:user_id, :artist_id)
+    end
+
 end
