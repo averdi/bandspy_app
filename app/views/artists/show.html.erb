@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-12">
       <p id="notice"><%= notice %></p>
 
     <% if @events.length == 0 %>
@@ -9,7 +9,7 @@
       <p>
         <h1><%= @events.first.artists.first.name %></h1>
               <% if UserArtist.find_by(user_id: current_user.id, artist_id: @artist.id) %>
-                <p><%= link_to 'Unfollow', user_artist_path(@artist.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                <p><%= link_to '<button><i class="fa fa-user-times fa-3x"></i></button>'.html_safe, user_artist_path(@artist.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
               <% else %>
                 <%= form_for(@user_artist) do |f| %>
                   <%= f.hidden_field :user_id, value: current_user.id %>
@@ -32,7 +32,7 @@
       <% if event.ticket_status == 'unavailable' %>
           <%= 'No tickets available' %>
           <% else event.ticket_status == 'available' %>
-          <%= link_to 'Buy Tickets', event.ticket_url %>
+          <%= link_to '<i class="fa fa-ticket fa-2x"></i>'.html_safe, event.ticket_url %>
           <% end %>
       <% end %>
     </li>
