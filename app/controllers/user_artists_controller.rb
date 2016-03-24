@@ -3,7 +3,7 @@ class UserArtistsController < ApplicationController
   def index
   # Get all user's artists from user_artists table
   # by finding all artist_id that is with user_id
-
+   @artist = Artist.new
     @user_artists = UserArtist.where(:user_id => current_user.id)
 
   # Match artist_id from user_artists table to id in artists table
@@ -16,7 +16,7 @@ class UserArtistsController < ApplicationController
 
   def new
     @user_artist = UserArtist.new
-    @artist = Artist.new
+
   end
 
   def create
@@ -35,24 +35,7 @@ class UserArtistsController < ApplicationController
       end
     end
 
-    #adding new artist to artist table
 
-    name = params[:name]
-
-      artist = Bandsintown::Artist.new({
-        :name => name
-      })
-      @artist = Artist.create(name: artist.name)
-
-     respond_to do |format|
-       if @artist.save
-         format.html { redirect_to @artist }
-         format.json { render :show, status: :created, location: @artist }
-       else
-         format.html { render :new }
-         format.json { render json: @artist.errors, status: :unprocessable_entity }
-       end
-     end
 
   end
 

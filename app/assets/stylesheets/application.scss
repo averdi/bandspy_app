@@ -15,6 +15,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$turquoise: #00d6dd;
+
+
 .head {
   font-family: 'Pacifico', cursive;
   font-size: 30px;
@@ -29,7 +32,7 @@
 }
 
 .jumbotron {
-  background-color: rgb(193, 169, 217);
+  background-color: $turquoise;
 
 }
 
@@ -42,7 +45,9 @@
 }
 
 #search {
-
+text-align: center;
+background-color: $turquoise;
+width: 100%;
 }
 
 .whiteNav {
