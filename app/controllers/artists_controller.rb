@@ -104,3 +104,4 @@ class ArtistsController < ApplicationController
       params.require(:artist).permit(:name, :on_tour)
     end
 end
+
