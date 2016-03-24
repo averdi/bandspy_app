@@ -18,6 +18,8 @@
 $logogrey: rgb(139, 139, 139);
 $offwhite: rgb(222, 216, 216);
 
+
+
 body {
   background-image: url("http://ed3p.com/wp-content/uploads/2015/02/bg.jpg");
 }
@@ -27,18 +29,20 @@ body {
   font-size: 40px;
 }
 
-.cityEvents {
-  list-style: none;
-  padding: 0;
+.myArtists {
+  font-size: 25px;
+  a {
+    color: #2D2C61;
+  }
 }
 
 .cityEvents {
+  list-style: none;
+  padding: 0;
   font-size: 25px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-
-
 }
 
 .jumbotron {
@@ -63,7 +67,7 @@ body {
 
 #welcome {
   font-size: 40px;
-  color: rgb(137, 204, 251);
+  color: rgb(255, 253, 114);
 }
 
 #search {
@@ -107,4 +111,18 @@ width: 100%;
 
 #navGreet {
   text-align: right;
+  color: $logogrey;
+}
+
+button {
+  color : rgb(38, 38, 38);
+}
+
+#upcomingEvents {
+  font-size: 30px;
+}
+
+#concerts {
+  color: $offwhite;
+  padding: 20px;
 }

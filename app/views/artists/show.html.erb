@@ -4,7 +4,7 @@
       <p id="notice"><%= notice %></p>
 
     <% if @events.length == 0 %>
-          <%='No Concerts Available' %>
+          <h2><%='No Concerts Available' %></h2>
     <% else%>
       <p>
         <h1><%= @events.first.artists.first.name %></h1>
@@ -22,13 +22,13 @@
   </div>
 
   <p>
-    <strong><h2>Concerts:</h2></strong>
+    <strong><h2 class="page-header">Concerts:</h2></strong>
   </p>
 
 
   <ul>
     <% @events.each do |event| %>
-    <li class= "jumbotron cityEvents"><%= event.venue.name %> --
+    <li class= "jumbotron cityEvents" id="concerts"><%= event.venue.name %> --
       <%= event.venue.city%>, <%= event.venue.region%>
       <%= event.datetime.strftime("%A, %B %d, %l%p") %>
       <% if event.ticket_status == 'unavailable' %>
