@@ -5,7 +5,9 @@
 
     <% if @events.length == 0 %>
           <h2><%='No Concerts Available' %></h2>
-    <% else%>
+    <% elsif @events == nil %>
+      <p>Are you sure that band exists?</p>
+    <% else %>
       <p>
         <h1><%= @events.first.artists.first.name %></h1>
               <% if UserArtist.find_by(user_id: current_user.id, artist_id: @artist.id) %>

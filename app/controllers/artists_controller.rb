@@ -54,7 +54,6 @@ class ArtistsController < ApplicationController
         :name => name
       })
       @artist = Artist.create(name: artist.name)
-
      respond_to do |format|
        if @artist.save
          format.html { redirect_to @artist }
