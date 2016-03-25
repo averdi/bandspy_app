@@ -39,7 +39,7 @@ Run `bundle install` to install the gems used in our app, along with any gem dep
 
 Our database model.
 
-![alt tag]()
+![alt tag](app/assets/images/bandspy_erd.jpg "ERD")
 
 Run `rake db:create`
 
