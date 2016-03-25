@@ -29,7 +29,7 @@ Please feel free to use a different markup language if you do not plan to run
 
 == BandSpy [Website](bandspy.herokuapp.com)
 
-Built by *Antonia Verdi*, *Jeremy Garza*, and *Ryan Jones* using Ruby(2.2.3) and Rails(4.2.5.2)
+Built by **Antonia Verdi**, **Jeremy Garza**, and **Ryan Jones** using Ruby(2.2.3) and Rails(4.2.5.2)
 
 ###Configure gems
 
@@ -57,7 +57,7 @@ This will give you the tables and columns you need.
 
 
 
-*Using BandSpy
+*Using* *BandSpy*
 
 To begin, a user enters his or her information onto the signup form, including
 their current location. When a user logs on, the main page will show events happening
