@@ -51,4 +51,11 @@ This will give you the tables and columns you need.
 
 *Using* *BandSpy*
 
+To begin, a user enters his or her information onto the signup form, including
+their current location. When a user logs on, the main page will show events happening
+in their area in the upcoming week. Through the search bar a user can look up artists and
+see upcoming concerts for each artist. If tickets are available for purchase, there will be a
+ticket icon that links to a site where they can buy tickets. Users are able to follow their favorite artists, and keep track of them on the My Artists page. In addition to a list of the user's followed artists, the My Artists page also shows any concerts that those artists are playing within 25 mi of the user's location in the upcoming month. A user can edit his or her profile to change their location, and BandSpy will show upcoming events in their new location instead.
+
+
 
