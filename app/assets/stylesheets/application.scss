@@ -63,6 +63,12 @@ body {
   }
 }
 
+.login {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  padding: 20px;
+}
+
 #spyLogo {
   float: left;
 }
@@ -127,4 +133,26 @@ button {
 #concerts {
   color: $offwhite;
   padding: 20px;
+}
+
+.collapse .navbar-collapse {
+  padding: 20px;
+}
+
+#rememberMe {
+  float: left;
+
+}
+
+#signUp {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#signup {
+  margin-bottom: 5px;
+}
+
+#register {
+  color: $offwhite;
 }
