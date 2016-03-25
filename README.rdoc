@@ -35,7 +35,7 @@ Built with Ruby(2.2.3) on Rails(4.2.5.2)
 
 Run `bundle install` to install the gems used in our app, along with any gem dependencies.
 
-**Database**
+*Database*
 
 Our database model.
 
