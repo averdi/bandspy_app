@@ -29,7 +29,7 @@ Please feel free to use a different markup language if you do not plan to run
 
 == BandSpy [Website](bandspy.herokuapp.com)
 
-Built by **Antonia Verdi**, **Jeremy Garza**, and **Ryan Jones** using Ruby(2.2.3) and Rails(4.2.5.2)
+Built by *Antonia Verdi*, *Jeremy Garza*, and *Ryan Jones* using Ruby(2.2.3) and Rails(4.2.5.2)
 
 ###Configure gems
 
