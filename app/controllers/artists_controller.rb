@@ -21,7 +21,13 @@ class ArtistsController < ApplicationController
     #   else
     #     @artists = Artist.all.order('created_at DESC')
     #   end
-     @user_artist = UserArtist.new
+    @user_artist = UserArtist.new
+    name = params[:name]
+
+    artist = Bandsintown::Artist.new({
+      :name => name
+    })
+    @artist = Artist.create(name: artist.name)
   end
 
   # GET /artists/1
