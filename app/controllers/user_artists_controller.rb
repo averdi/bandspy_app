@@ -11,7 +11,14 @@ class UserArtistsController < ApplicationController
 
       @my_artists = @user_artists.map { |user_artist| Artist.where(:id => user_artist.artist_id) }
 
-  # List all artists by name with link to artists#show
+  # List all followed user artists events
+     location = current_user.location
+     @events = Bandsintown::Event.search({
+      :artists => [@my_artists],
+      :location => location,
+      :start_date => Time.now,
+      :end_date => 1.week.from_now
+      })
   end
 
   def new
@@ -58,3 +65,5 @@ class UserArtistsController < ApplicationController
     end
 
 end
+
+
