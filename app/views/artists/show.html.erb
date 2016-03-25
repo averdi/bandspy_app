@@ -4,10 +4,22 @@
       <p id="notice"><%= notice %></p>
 
     <% if @events.length == 0 %>
-          <h2><%='No Concerts Available' %></h2>
-    <% elsif @events == nil %>
-      <p>Are you sure that band exists?</p>
-    <% else %>
+
+          <h2><%= @artist.name %></h2>
+          <% if UserArtist.find_by(user_id: current_user.id, artist_id: @artist.id) %>
+            <p><%= link_to '<button><i class="fa fa-user-times fa-3x"></i></button>'.html_safe, user_artist_path(@artist.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <% else %>
+            <%= form_for(@user_artist) do |f| %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.hidden_field :artist_id, value: @artist.id %>
+              <%= f.submit 'Follow' %>
+
+            <% end %>
+          <% end %>
+          <strong><h2 class="page-header">Concerts:</h2></strong>
+          <h4><%='No Concerts Available' %></h4>
+    <% else%>
+
       <p>
         <h1><%= @events.first.artists.first.name %></h1>
               <% if UserArtist.find_by(user_id: current_user.id, artist_id: @artist.id) %>

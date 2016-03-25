@@ -18,7 +18,7 @@
     <ul>
         <% @events.each do |event| %>
         <%= event.artists.first.name %>
-        <li class= "jumbotron cityEvents" id="concerts"><%= event.venue.name %> --
+        <li class= "jumbotron cityEvents" id="concerts"><%= event.venue.name %> -- <%= event.venue.city%>, <%= event.venue.region%> --
         <%= event.datetime.strftime("%A, %B %d, %l%p") %>
         <% if event.ticket_status == 'available' %>
           <%= link_to '<i class="fa fa-ticket fa-2x"></i>'.html_safe, event.ticket_url %>
