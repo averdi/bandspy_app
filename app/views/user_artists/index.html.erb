@@ -17,7 +17,7 @@
   <% end %>
     <ul>
         <% @events.each do |event| %>
-        <%= event.artists.first.name %>
+        <p>Shows in your area:<p>
         <li class= "jumbotron cityEvents" id="concerts"><%= event.venue.name %> -- <%= event.venue.city%>, <%= event.venue.region%> --
         <%= event.datetime.strftime("%A, %B %d, %l%p") %>
         <% if event.ticket_status == 'available' %>
