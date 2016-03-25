@@ -31,7 +31,7 @@ Please feel free to use a different markup language if you do not plan to run
 
 Built with Ruby(2.2.3) on Rails(4.2.5.2)
 
-**Configure your gems**
+*Configure gems*
 
 Run `bundle install` to install the gems used in our app, along with any gem dependencies.
 
@@ -49,6 +49,6 @@ After that, run `rake db:migrate`
 
 This will give you the tables and columns you need.
 
-**Using BandSpy**
+*Using BandSpy*
 
 
