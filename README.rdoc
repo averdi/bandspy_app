@@ -35,7 +35,7 @@ Built by *Antonia Verdi*, *Jeremy Garza*, and *Ryan Jones* using Ruby(2.2.3) and
 
 Run `bundle install` to install the gems used in our app, along with any gem dependencies.
 
-###Planning
+##Planning
 
 *ERD*
 
