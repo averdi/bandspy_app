@@ -12,17 +12,20 @@
   <% else %>
 
     <% @my_artists.each do |user_artist| %>
-    <p><%= link_to user_artist.first.name, artist_path(user_artist.first.id) %> -- <%= link_to '<button><i class="fa fa-user-times fa-lg"></i></button>'.html_safe, user_artist_path(user_artist.first.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <p><%= link_to user_artist.first.name, artist_path(user_artist.first.id) %> -- <%= link_to '<button class="btn btn-danger btn btn-primary btn-sm">Unfollow</button>'.html_safe, user_artist_path(user_artist.first.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
   <% end %>
     <ul>
         <% @events.each do |event| %>
+<<<<<<< HEAD
 
         <li class= "jumbotron cityEvents" id="concerts"><%= event.artists.first.name %> -- <%= event.venue.name %> --
+=======
+        <p>Shows in your area:<p>
+        <li class= "jumbotron cityEvents" id="concerts"><%= event.venue.name %> -- <%= event.venue.city%>, <%= event.venue.region%> --
+>>>>>>> 24af0eba77af5253c3eb6ee0fc34f2cf2fa03134
         <%= event.datetime.strftime("%A, %B %d, %l%p") %>
-        <% if event.ticket_status == 'unavailable' %>
-          <%= 'No tickets available' %>
-          <% else event.ticket_status == 'available' %>
+        <% if event.ticket_status == 'available' %>
           <%= link_to '<i class="fa fa-ticket fa-2x"></i>'.html_safe, event.ticket_url %>
           <% end %>
         <% end %>

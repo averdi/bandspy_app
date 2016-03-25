@@ -21,7 +21,13 @@ class ArtistsController < ApplicationController
     #   else
     #     @artists = Artist.all.order('created_at DESC')
     #   end
-     @user_artist = UserArtist.new
+    @user_artist = UserArtist.new
+    name = params[:name]
+
+    artist = Bandsintown::Artist.new({
+      :name => name
+    })
+    @artist = Artist.create(name: artist.name)
   end
 
   # GET /artists/1
@@ -54,7 +60,6 @@ class ArtistsController < ApplicationController
         :name => name
       })
       @artist = Artist.create(name: artist.name)
-
      respond_to do |format|
        if @artist.save
          format.html { redirect_to @artist }

@@ -28,7 +28,6 @@ class UserArtistsController < ApplicationController
 
   def new
     @user_artist = UserArtist.new
-
   end
 
   def create
@@ -54,7 +53,7 @@ class UserArtistsController < ApplicationController
     @user_artist = UserArtist.find_by(user_id: current_user.id, artist_id: @artist.id)
     @user_artist.destroy
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'You successfully unfollowed an artist.' }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end
