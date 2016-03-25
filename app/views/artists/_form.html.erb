@@ -1,11 +1,11 @@
-<%= form_tag(@artist) do %>
+<%= form_for @artist do |f| %>
   <div class="field">
-    <%= label_tag :find_new_artist %>
-    <%= text_field_tag :name %>
+    <%= f.label :find_new_artist %>
+    <%= f.text_field :name %>
   </div>
 
   <div class="actions">
-    <%= submit_tag "Search" %>
+    <%= f.submit "Search" %>
   </div>
 <% end %>
 
