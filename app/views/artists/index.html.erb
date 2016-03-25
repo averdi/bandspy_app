@@ -13,14 +13,10 @@
 
 <ul class = "cityEvents">
  <% @events.each do |event| %>
-  <li class = "shadeBox", class = "cityEvents" ><a href="<%=event.artists.first.bandsintown_url%>"><%=event.artists.first.name %></a> -- <%= event.venue.name %> -- <%= event.datetime.strftime("%l%p, %A, %B %d") %> --
+  <li class = "shadeBox", class = "cityEvents" ><a href="<%=event.artists.first.bandsintown_url%>"><%=event.artists.first.name %></a> -- <%= event.venue.name %> -- <%= event.datetime.strftime("%l%p, %A, %B %d") %>
 
-  <% if event.ticket_status == 'unavailable' %>
-  <%= 'No tickets available' %>
-  <% else event.ticket_status == 'available' %>
-  <%= link_to event.ticket_url do %>
-    Tickets
-    <% end %>
+  <% if event.ticket_status == 'available' %>
+  <%= link_to '<i class="fa fa-ticket fa-2x"></i>'.html_safe, event.ticket_url %>
   <% end %></li>
 
 

@@ -6,13 +6,15 @@
 
 <h2 class="page-header">My Artists</h2>
 <div class = "myArtists">
-<% if @my_artists.length == 0 %>
-<p>It doesn't look like you've followed any artists yet.<br>Get Out, (leave) right now,<br>
-It's the end of you and me</p>
-<% else %>
-  <% @my_artists.each do |user_artist| %>
-  <p><%= link_to user_artist.first.name, artist_path(user_artist.first.id) %> -- <%= link_to '<button class="btn btn-danger">Unfollow</button>'.html_safe, user_artist_path(user_artist.first.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <% if @my_artists.length == 0 %>
+    <p>It doesn't look like you've followed any artists yet.<br>Get Out, (leave) right now,<br>
+      It's the end of you and me</p>
+  <% else %>
+
+    <% @my_artists.each do |user_artist| %>
+    <p><%= link_to user_artist.first.name, artist_path(user_artist.first.id) %> -- <%= link_to '<button><i class="fa fa-user-times fa-lg"></i></button>'.html_safe, user_artist_path(user_artist.first.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
   <% end %>
+
 <% end %>
 </div>

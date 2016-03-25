@@ -1,44 +1,84 @@
 <div id="about_us">
-  <h2>What is BandSpy?</h2>
-  <p class="about">BandSpy is the newest way to find your favorite bands and artists and keep up with their concerts. BandSpy launched in 2016 from Austin, Texas, the live music capital of the world!</p>
+  <h2 class="page-header">What is BandSpy?</h2>
+  <h4 class="about">BandSpy is the newest way to find your favorite bands and artists and keep up with their concerts. BandSpy launched in 2016 from Austin, Texas, the live music capital of the world!</h4>
 </div>
 
-<h2>Sign up</h2>
+<div class="login">
+  <h2 id="register">Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+   <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+   <div class="field">
+     <%= f.label :email %><br />
+     <%= f.email_field :email, autofocus: true %>
+   </div>
 
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location, autofocus: true, placeholder: 'Ex: Austin, TX' %>
-  </div>
+     <div class="field">
+     <%= f.label :location %><br />
+     <%= f.text_field :location, autofocus: true, value: '', id: :user_location %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
 
-  <div class="field">
+    <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="actions" id="signup">
+    </br>
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
 
-<%= render "users/shared/links" %>
+  <%= render "users/shared/links" %>
+
+</div>
+
+<script type="text/javascript">
+  $.getJSON("http://jsonip.com?callback=?", function (data) {
+    console.log("Your ip: " + data.ip);
+
+    $.ajax({
+      url: "http://www.geoplugin.net/json.gp",
+
+      // The name of the callback parameter, as specified by the YQL service
+      jsonp: "jsoncallback",
+
+      // Tell jQuery we're expecting JSONP
+      dataType: "jsonp",
+
+      // Tell YQL what we want and that we want JSON
+      data: {
+          ip: data.ip
+      },
+
+      // Work with the response
+      success: function( response ) {
+          console.log( response ); // server response
+          console.log(response.geoplugin_city);
+
+          var city = response.geoplugin_city;
+          var state = response.geoplugin_region;
+          var location = city + ', ' + state;
+
+          $('#user_location').val(location);
+      }
+    });
+
+});
+
+</script>
+

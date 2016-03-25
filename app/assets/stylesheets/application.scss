@@ -12,8 +12,10 @@
  *
 
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 $logogrey: rgb(139, 139, 139);
 $offwhite: rgb(222, 216, 216);
@@ -59,6 +61,12 @@ body {
   @media only screen and (max-width: 500px) {
     width: 100%;
   }
+}
+
+.login {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  padding: 20px;
 }
 
 #spyLogo {
@@ -125,4 +133,26 @@ button {
 #concerts {
   color: $offwhite;
   padding: 20px;
+}
+
+.collapse .navbar-collapse {
+  padding: 20px;
+}
+
+#rememberMe {
+  float: left;
+
+}
+
+#signUp {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#signup {
+  margin-bottom: 5px;
+}
+
+#register {
+  color: $offwhite;
 }
