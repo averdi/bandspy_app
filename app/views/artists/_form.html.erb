@@ -1,12 +1,10 @@
-<%= form_tag @artist %>
+<%= form_for @artist do |f| %>
   <div class="field">
-    <%= label_tag :find_new_artists %>
-    <%= text_field_tag :name %>
+
+    <%= f.text_field :name, placeholder: 'Searh All Artists' %>
   </div>
 
   <div class="actions">
-    <%= submit_tag "Search" %>
+    <%= f.submit "Search" %>
   </div>
 <% end %>
-
-
