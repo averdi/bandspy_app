@@ -13,15 +13,17 @@ class UserArtistsController < ApplicationController
 
   # List all followed user artists events
      location = current_user.location
-     @my_artists.each do |my_artist|
-      name = my_artist.first.name
-      @events = Bandsintown::Event.search({
+      @events = []
+      @my_artists.each do |artist|
+        name =  artist.first.name
+        @events += Bandsintown::Event.search({
         :artists => [name],
         :location => location,
         :start_date => Time.now,
         :end_date => 1.month.from_now
       })
-    end
+      end
+
  end
 
   def new

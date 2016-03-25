@@ -17,8 +17,8 @@
   <% end %>
     <ul>
         <% @events.each do |event| %>
-        <%= event.artists.first.name %>
-        <li class= "jumbotron cityEvents" id="concerts"><%= event.venue.name %> --
+
+        <li class= "jumbotron cityEvents" id="concerts"><%= event.artists.first.name %> -- <%= event.venue.name %> --
         <%= event.datetime.strftime("%A, %B %d, %l%p") %>
         <% if event.ticket_status == 'unavailable' %>
           <%= 'No tickets available' %>
