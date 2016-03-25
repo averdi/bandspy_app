@@ -50,20 +50,19 @@ class ArtistsController < ApplicationController
     # @artist = Artist.create()
     name = params[:name]
 
-    artist = Bandsintown::Artist.get({
-      :name => "Raekwon"
-    })
-    artist = Artist.create(name: artist.name, on_tour: artist.on_tour?)
-
-    respond_to do |format|
-      if @artist.save
-        format.html { redirect_to @artist }
-        format.json { render :show, status: :created, location: @artist }
-      else
-        format.html { render :new }
-        format.json { render json: @artist.errors, status: :unprocessable_entity }
-      end
-    end
+      artist = Bandsintown::Artist.new({
+        :name => name
+      })
+      @artist = Artist.create(name: artist.name)
+     respond_to do |format|
+       if @artist.save
+         format.html { redirect_to @artist }
+         format.json { render :show, status: :created, location: @artist }
+       else
+         format.html { render :new }
+         format.json { render json: @artist.errors, status: :unprocessable_entity }
+       end
+     end
 
       #   redirect_to artist_path(@artist.id)
 
