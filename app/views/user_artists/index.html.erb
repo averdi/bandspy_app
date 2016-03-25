@@ -10,11 +10,12 @@
     <p>It doesn't look like you've followed any artists yet.<br>Get Out, (leave) right now,<br>
       It's the end of you and me</p>
   <% else %>
-
+<div id="myArtistsBox">
     <% @my_artists.each do |user_artist| %>
     <p><%= link_to user_artist.first.name, artist_path(user_artist.first.id) %> -- <%= link_to '<button class="btn btn-danger btn btn-primary btn-sm">Unfollow</button>'.html_safe, user_artist_path(user_artist.first.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
   <% end %>
+</div>
     <ul>
     <p>Upcoming shows in your area:<p>
         <% @events.each do |event| %>
