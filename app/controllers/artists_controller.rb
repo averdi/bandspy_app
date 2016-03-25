@@ -50,10 +50,10 @@ class ArtistsController < ApplicationController
     # @artist = Artist.create()
     name = params[:name]
 
-    artist = Bandsintown::Artist.get({
-      :name => "Raekwon"
+    artist = Bandsintown::Artist.new({
+      :name => name
     })
-    artist = Artist.create(name: artist.name, on_tour: artist.on_tour?)
+    @artist = Artist.create(name: artist.name)
 
     respond_to do |format|
       if @artist.save

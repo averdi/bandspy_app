@@ -23,7 +23,6 @@ class UserArtistsController < ApplicationController
 
   def new
     @user_artist = UserArtist.new
-
   end
 
   def create
