@@ -27,19 +27,19 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
-== BandSpy bandspy.herokuapp.com
+== BandSpy [Website](bandspy.herokuapp.com)
 
-Built with Ruby(2.2.3) on Rails(4.2.5.2)
+Built by *Antonia Verdi*, *Jeremy Garza*, and *Ryan Jones* using Ruby(2.2.3) and Rails(4.2.5.2)
 
-*Configure* *gems*
+###Configure gems
 
 Run `bundle install` to install the gems used in our app, along with any gem dependencies.
 
-*Database*
+##Planning
 
-Our database model.
+*ERD*
 
-![alt tag]()
+![alt text](app/assets/images/bandspy_erd.jpg "ERD")
 
 Run `rake db:create`
 
@@ -48,6 +48,14 @@ This will give you the database needed to run the app.
 After that, run `rake db:migrate`
 
 This will give you the tables and columns you need.
+
+*Wireframes*
+
+![alt text](app/assets/images/wireframe1.jpg "Artist Page")
+
+![alt text](app/assets/images/wireframe2.jpg "User Page")
+
+
 
 *Using* *BandSpy*
 
